@@ -14,10 +14,7 @@
 
 use App\Events\EventTriggered;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// region Public Channels Routes
 Route::get('/sender', function(){
     return view('sender');
 })->name('sender');
@@ -32,4 +29,19 @@ Route::post('/event', function(){
 
 Route::get('/listener', function(){
     return view('listener');
+});
+// endregion
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::middleware('auth')->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/post', 'PostController@getAll')->name('post');
+    Route::get('/post/create', 'PostController@create')->name('post.create');
+    Route::post('/post', 'PostController@store');
 });
