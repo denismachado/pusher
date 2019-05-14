@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pusher Test</title>
+    <title>Pusher Listener, wait ans you will see it!</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
     <script>
@@ -21,9 +21,5 @@
 </head>
 <body>
 <h1>Pusher Test</h1>
-<p>
-    Try publishing an event to channel <code>my-channel</code>
-    with event name <code>my-event</code>.
-</p>
 </body>
 </html>

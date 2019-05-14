@@ -20,12 +20,14 @@ Route::get('/', function () {
 
 Route::get('/sender', function(){
     return view('sender');
-});
+})->name('sender');
 
 Route::post('/event', function(){
 
     $text = request()->content;
     event(new EventTriggered($text));
+
+    return redirect()->route('sender');
 });
 
 Route::get('/listener', function(){
