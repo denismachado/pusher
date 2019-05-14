@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostCreated;
 use App\Http\Requests\PostRequest;
 use App\Interfaces\PostInterface;
-use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -19,7 +18,8 @@ class PostController extends Controller
 
     public function getAll()
     {
-        dd('getting all');
+        $posts = $this->post->getAll();
+        return view('post.posts')->with('posts', $posts);
     }
 
     public function create()
@@ -29,9 +29,13 @@ class PostController extends Controller
 
     public function store(PostRequest $request)
     {
-        $this->post->create($request->validated());
+        $data = $request->validated();
 
-        return redirect()->route('post.create');
+        $this->post->create($data);
+
+        event(new PostCreated($data));
+
+        return redirect()->route('posts');
     }
 
     public function show()
