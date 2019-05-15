@@ -19,10 +19,10 @@ class PostController extends Controller
 
     public function getAll()
     {
-        $posts = $this->post->getAll();
-        return view('post.posts')->with('posts', $posts);
+        return view('post.posts');
     }
 
+    // API call for Vue.js
     public function getPosts() : JsonResponse
     {
         $posts = $this->post->getAll();

@@ -18,12 +18,11 @@
                     console.log(e);
                     this.events.push(e.post);
                 });
-            this.some()
+            this.getPosts()
         },
         methods: {
-            some:function(){
-                this.axios.get('/posts')
-
+            getPosts:function(){
+                this.axios.get('/api/posts')
                     .then(response => {
                         this.events = response.data
                     })

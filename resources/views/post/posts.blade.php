@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Posts</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
-<body>
-<!--h1>All Posts</h1>
-<ul>
-    @foreach($posts as $post)
-        <li>{{ $post['title'] }}</li>
-    @endforeach
-</ul-->
-<div id="app">
-</div>
-<a href="/post/create">Create New Post</a>
-</body>
+@extends('layouts.app')
 
-<script src="{{ asset('js/app.js') }}"></script>
-</html>
+@section('content')
+    <div class="container">
+        <h1>All Posts</h1>
+        <a href="/post/create" style="float: right">Create New Post</a>
+        <div id="vue"></div>
+    </div>
+@endsection

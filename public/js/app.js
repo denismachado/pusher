@@ -1807,13 +1807,13 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.events.push(e.post);
     });
-    this.some();
+    this.getPosts();
   },
   methods: {
-    some: function some() {
+    getPosts: function getPosts() {
       var _this2 = this;
 
-      this.axios.get('/posts').then(function (response) {
+      this.axios.get('/api/posts').then(function (response) {
         _this2.events = response.data;
       })["catch"](function (error) {
         error.response.data;
@@ -59488,7 +59488,7 @@ new Vue({
   render: function render(h) {
     return h(_components_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
-}).$mount('#app');
+}).$mount('#vue');
 
 /***/ }),
 
