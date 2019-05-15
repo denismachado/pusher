@@ -12,9 +12,9 @@
 */
 
 
+// region Public Channels Routes
 use App\Events\EventTriggered;
 
-// region Public Channels Routes
 Route::get('/sender', function(){
     return view('sender');
 })->name('sender');
@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/post', 'PostController@getAll')->name('posts');
+    Route::get('/posts', 'PostController@getPosts');
     Route::get('/post/create', 'PostController@create')->name('post.create');
     Route::post('/post', 'PostController@store');
 });

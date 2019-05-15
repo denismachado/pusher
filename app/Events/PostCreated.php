@@ -35,9 +35,9 @@ class PostCreated implements ShouldBroadcast
     {
         return new PrivateChannel('private-channel');
     }
-
-    public function broadcastAs()
-    {
-       return "private-event";
-    }
+//
+//    public function broadcastAs()
+//    {
+//       return "private-event";
+//    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\PostCreated;
 use App\Http\Requests\PostRequest;
 use App\Interfaces\PostInterface;
+use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
 {
@@ -20,6 +21,12 @@ class PostController extends Controller
     {
         $posts = $this->post->getAll();
         return view('post.posts')->with('posts', $posts);
+    }
+
+    public function getPosts() : JsonResponse
+    {
+        $posts = $this->post->getAll();
+        return response()->json($posts);
     }
 
     public function create()
