@@ -21,7 +21,7 @@ Route::get('/sender', function(){
 
 Route::post('/event', function(){
 
-    $text = request()->content;
+    $text = request()->text;
     event(new EventTriggered($text));
 
     return redirect()->route('sender');
